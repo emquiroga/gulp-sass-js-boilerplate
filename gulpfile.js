@@ -1,6 +1,6 @@
 'use strict'
 //Module imports
-const { src, dest, watch, series } = require('gulp');
+const { app, dest, watch, series } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -11,7 +11,7 @@ const browserSync = require('browser-sync').create();
 
 //SASS
 function watchSass() {
-    return src('src/sass/style.scss', { sourcemaps: true })
+    return app('app/sass/style.scss', { sourcemaps: true })
         .pipe(sass())
         .pipe(postcss([autoprefixer(), cssnano()]))
         .pipe(dest('dist', { sourcemaps: '.' }))
@@ -19,7 +19,7 @@ function watchSass() {
 
 //JavaScript
 function watchJS() {
-    return src('src/js/main.js', { sourcemaps: true })
+    return app('app/js/main.js', { sourcemaps: true })
         .pipe(babel({ presets: ['@babel/preset-env']}))
         .pipe(terser())
         .pipe(dest('dist', { sourcemaps: '.'}))
@@ -49,7 +49,7 @@ function browserSyncReload(cb) {
 function watchTask() {
     watch('*.html', browserSyncReload);
     watch(
-        ['src/sass/**/*.scss', 'src/**/*.js'],
+        ['app/sass/**/*.scss', 'app/**/*.js'],
         series(watchSass, watchJS, browserSyncReload)
     );
 }
