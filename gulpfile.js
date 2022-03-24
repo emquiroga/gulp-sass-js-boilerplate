@@ -14,7 +14,7 @@ function watchSass() {
     return src('app/scss/style.scss', { sourcemaps: true })
         .pipe(sass())
         .pipe(postcss([autoprefixer(), cssnano()]))
-        .pipe(dest('dist', { sourcemaps: '.' }))
+        .pipe(dest('dist/css', { sourcemaps: '.' }))
 }
 
 //JavaScript
@@ -22,7 +22,7 @@ function watchJS() {
     return src('app/js/index.js', { sourcemaps: true })
         .pipe(babel({ presets: ['@babel/preset-env']}))
         .pipe(terser())
-        .pipe(dest('dist', { sourcemaps: '.'}))
+        .pipe(dest('dist/js', { sourcemaps: '.'}))
 }
 
 //Live server
