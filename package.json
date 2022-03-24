@@ -1,7 +1,8 @@
 {
   "name": "gulp-sass-js-boilerplate",
   "version": "1.0.0",
-  "description": "- Sass\r - PostCSS\r - Autoprefixer\r - CSSNano\r - Babel\r - Terser (JSmin)\r - Browser-Sync",  "scripts": {
+  "description": "- Sass\r - PostCSS\r - Autoprefixer\r - CSSNano\r - Babel\r - Terser (JSmin)\r - Browser-Sync",
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
