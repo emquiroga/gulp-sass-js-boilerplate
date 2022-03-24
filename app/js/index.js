@@ -1,3 +1,4 @@
 const testFunction  = () => {
-    console.log('Working');
+    return console.log("JavaScript is working!");
 }
+testFunction();
